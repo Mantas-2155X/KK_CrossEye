@@ -9,8 +9,10 @@ To see the 3D effect you need to cross your eyes (imagine taking your phone and 
 To add more realism, I've also coded in a **focus** mechanism which is not the best but will be improved later. If you get close enough to an object it will 'rotate the camera views' just like your eyes when you look at something very close. This allows you to get even closer to objects and still have them stay on your screen.
 
 **The focus is very alpha:** 
-*Currently it only focuses on characters.* 
+*Currently it only focuses on characters.*
+ 
 *Neck does not get focused, not sure why, probably missing a collider.*
+ 
 *I will make it a little smoother with the next updates.*
 
 This plugin might drop your fps **slightly** when activated. 
