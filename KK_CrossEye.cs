@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using UnityEngine;
 using System.ComponentModel;
 
@@ -57,11 +57,8 @@ public class KK_CrossEye : BaseUnityPlugin {
                 oldFocus = currentFocus;
                 currentFocus = 12f - (hit.distance * 10);
 
-                LeftCamera.transform.Rotate(0, oldFocus, 0);
-                RightCamera.transform.Rotate(0, -oldFocus, 0);
-
-                LeftCamera.transform.Rotate(0, -currentFocus, 0);
-                RightCamera.transform.Rotate(0, currentFocus, 0);
+                LeftCamera.transform.Rotate(0, oldFocus - currentFocus, 0);
+                RightCamera.transform.Rotate(0, -oldFocus + currentFocus, 0);
             } else {
                 if (currentFocus > 0f) {
                     LeftCamera.transform.Rotate(0, currentFocus, 0);
@@ -118,7 +115,7 @@ public class KK_CrossEye : BaseUnityPlugin {
         rightCameraObject.transform.localPosition += offset / 2;
         RightCamera.rect = new Rect(0.5f, 0, 1f, 1f);
 
-        mainCamera.rect = new Rect(0.45f, 0.45f, 0.1f, 0.1f);
+        mainCamera.rect = new Rect(0.499f, 0.499f, 0.002f, 0.002f);
     }
 
     void CrossEye_Kill() {
