@@ -27,3 +27,42 @@ I suggest leaving IPD as default since it might not be fully compatible with the
 
 Here's a test video showing it. The effect looks much better in-game than in video.
 [[insert video here]]
+
+Extra presets can be made by yourself, be careful with the numbers. Refer to the code.
+
+**Presets:**
+1. **Default**
+   IPD: 0.15
+   Focus Mul: 10
+   Focus Dst: 1.2
+   Focus Ttl: 12
+   
+2. **Long 2x**
+   IPD: 0.15
+   Focus Mul: 10
+   Focus Dst: 2.4
+   Focus Ttl: 24
+   
+3. **Long 3x**
+   IPD: 0.15
+   Focus Mul: 10
+   Focus Dst: 3.6
+   Focus Ttl: 36
+   
+4. **Long 4x**
+   IPD: 0.15
+   Focus Mul: 10
+   Focus Dst: 4.8
+   Focus Ttl: 48
+   
+5. **Close 1.1**
+   IPD: 0.15
+   Focus Mul: 10
+   Focus Dst: 1.1
+   Focus Ttl: 11
+   
+6. **Close 1.0**
+   IPD: 0.15
+   Focus Mul: 10
+   Focus Dst: 1.0
+   Focus Ttl: 10
