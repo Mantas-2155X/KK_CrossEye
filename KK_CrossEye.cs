@@ -2,13 +2,13 @@ using BepInEx;
 using UnityEngine;
 using System.ComponentModel;
 
-[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.0")]
+[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.1")]
 public class KK_CrossEye : BaseUnityPlugin {
     private Camera mainCamera;
     private GameObject leftCameraObject;
     private GameObject rightCameraObject;
 
-    private Vector3 offset = Vector3.left * 0.18f;
+    private Vector3 offset = Vector3.left * 0.15f;
 
     private float oldFocus;
     private float currentFocus;
@@ -24,12 +24,36 @@ public class KK_CrossEye : BaseUnityPlugin {
         [AcceptableValueRange(0f, 1f, false)]
         public static ConfigWrapper<float> CrossEye_IPD { get; private set; }
 
+        [DisplayName("CrossEye mode focus initial angle")]
+        [Description("Eye focus initial angle.")]
+        [AcceptableValueRange(0f, 45f, false)]
+        public static ConfigWrapper<float> CrossEye_FocusInitialAngle { get; private set; }
+
+        [DisplayName("EXPERIMENTAL CrossEye mode focus start distance")]
+        [Description("EXPERIMENTAL Eye focus start distance.")]
+        [AcceptableValueRange(0.25f, 5f, false)]
+        public static ConfigWrapper<float> CrossEye_FocusDistance { get; private set; }
+
+        [DisplayName("EXPERIMENTAL CrossEye mode focus multiply")]
+        [Description("EXPERIMENTAL Eye focus multiply.")]
+        [AcceptableValueRange(2.5f, 50f, false)]
+        public static ConfigWrapper<float> CrossEye_FocusMultiply { get; private set; }
+
+        [DisplayName("EXPERIMENTAL CrossEye mode focus total")]
+        [Description("EXPERIMENTAL Eye focus total.")]
+        [AcceptableValueRange(2.5f, 50f, false)]
+        public static ConfigWrapper<float> CrossEye_FocusTotal { get; private set; }
+
         public static SavedKeyboardShortcut CrossEye_EnableKey { get; private set; }
     #endregion
 
     void Awake() {
-        CrossEye_EnableKey = new SavedKeyboardShortcut("CrossEye mode Key", this, new KeyboardShortcut(KeyCode.Keypad1));
+        CrossEye_EnableKey = new SavedKeyboardShortcut("CrossEye mode key", this, new KeyboardShortcut(KeyCode.Keypad1));
         CrossEye_IPD = new ConfigWrapper<float>("CrossEye mode IPD", this, 0.18f);
+        CrossEye_FocusInitialAngle = new ConfigWrapper<float>("CrossEye mode focus initial angle", this, 2.5f);
+        CrossEye_FocusDistance = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus start distance", this, 1f);
+        CrossEye_FocusMultiply = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus multiply", this, 10f);
+        CrossEye_FocusTotal = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus total", this, 10f);
     }
 
     void Update() {
@@ -44,6 +68,9 @@ public class KK_CrossEye : BaseUnityPlugin {
                 currentFocus = 0f;
 
                 CrossEye_Init();
+
+                LeftCamera.transform.Rotate(0, -CrossEye_FocusInitialAngle.Value, 0);
+                RightCamera.transform.Rotate(0, CrossEye_FocusInitialAngle.Value, 0);
             } else { 
                 CrossEye_Kill(); 
             }
@@ -53,9 +80,9 @@ public class KK_CrossEye : BaseUnityPlugin {
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && (hit.distance <= 1.2f) && (hit.transform.name.Contains("cf_") || hit.transform.name.Contains("aibu_"))) {
+            if (Physics.Raycast(ray, out hit) && (hit.distance <= CrossEye_FocusDistance.Value) && (hit.transform.name.Contains("cf_") || hit.transform.name.Contains("aibu_"))) {
                 oldFocus = currentFocus;
-                currentFocus = 12f - (hit.distance * 10);
+                currentFocus = (CrossEye_FocusTotal.Value - (hit.distance * CrossEye_FocusMultiply.Value));
 
                 LeftCamera.transform.Rotate(0, oldFocus - currentFocus, 0);
                 RightCamera.transform.Rotate(0, -oldFocus + currentFocus, 0);
