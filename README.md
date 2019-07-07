@@ -2,7 +2,7 @@
 
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
-**Patreon page:** https://www.patreon.com/2155X
+**Patreon page:** https://www.patreon.com/2155X  
 **Screenshots of the plugin in action:** coming soon  
 **Video of the plugin in action:** coming soon  
 
