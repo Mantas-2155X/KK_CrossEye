@@ -9,7 +9,7 @@ using System.ComponentModel;
     using BepInEx.Logging;
 #endif
 
-[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.1")]
+[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.2")]
 public class KK_CrossEye : BaseUnityPlugin {
     private Camera mainCamera;
     private GameObject leftCameraObject;
