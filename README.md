@@ -1,5 +1,11 @@
 # KK_CrossEye
 
+This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
+
+**Thank you:**  
+   *essu#1145* for the start,
+   *ManlyMarco#7309* for help and ideas.
+
 **Works in:**  
    *Studio*  
    *School Mode*  
@@ -12,7 +18,7 @@
    
    In studio, **focus does not work.**  
    
-   In school mode, **conversation with girls might break it, just click the bind twice again to reload the cross eye mode.**  
+   In school mode, **conversations might break it, just click the bind twice again to reload the cross eye mode.**  
    
    In free-h, **touching/kissing will not work with the cross eye mode enabled**  
    
