@@ -9,6 +9,8 @@
 
 **Compatibility:**  
    *kPlug | YES*  
+   *In school mode, initiating conversation with girls might break it, just click the bind twice again to reload the cross eye mode.*  
+   *In free-h, touching/kissing will not work with the cross eye mode enabled*  
    *--not tested more--*  
 
 This is like a VR plugin but without the need of a VR headset. It works by placing 2 cameras in slightly different positions from eachother and splitting the screen 'in half' with them.
