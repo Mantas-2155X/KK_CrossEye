@@ -3,7 +3,7 @@
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
 **Thank you:**
-1. *essu#1145* for the start,  
+1. *essu#1145* for the start and ideas,  
 2. *ManlyMarco#7309* for help and ideas.  
 
 **Works in:**
