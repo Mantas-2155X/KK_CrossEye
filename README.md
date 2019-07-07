@@ -48,7 +48,7 @@ To add more realism, I've also coded in a **focus** mechanism which is not the b
 
 **The focus is very alpha:**  
    *Currently it only focuses on characters.*  
-   *Neck does not get focused, not sure why, probably missing a collider.*  
+   *During H, the neck does not get focused, probably missing a collider.*  
    *I will make it a little smoother with the next updates.*  
 
 This plugin might drop your fps **slightly** when activated. 
