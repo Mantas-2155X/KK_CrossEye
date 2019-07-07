@@ -14,16 +14,16 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 **Compatibility:**  
 1. **Studio**  
-   focus does not work  
+   * focus does not work  
 
 2. **School Mode**  
-   conversations might break 3D mode, just click the bind twice again to reload the cross eye mode  
+   * conversations might break 3D mode, just click the bind twice again to reload the cross eye mode  
 
 3. **Free-H**  
-   touching/kissing will not work with the cross eye mode enabled  
+   * touching/kissing will not work with the cross eye mode enabled  
 
 4. **General**  
-   UI is not converted to 3D so clicking space with mods to hide it gives the best experience
+   * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
 
 Will try fixing as many issues in compatibility as I can.
 
