@@ -2,6 +2,9 @@
 
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
+**Screenshots of the plugin in action:** coming soon  
+**Video of the plugin in action:** coming soon  
+
 **Thank you:**
 1. *essu#1145* for the start and ideas,  
 2. *ManlyMarco#7309* for help and ideas.  
@@ -35,7 +38,7 @@ This is like a VR plugin but without the need of a VR headset. It works by placi
 
 To see the 3D effect you need to cross your eyes (imagine taking your finger and putting it very close to your face) by crossing your eyes, try to move both images into one center image. You should see 3D if you do it correctly.
 
-Here's a random youtube video which explains how to do it fast and easy: https://www.youtube.com/watch?v=yNpIDSqTJ_Y
+Here's a random youtube video which explains **how to cross your eyes**: https://www.youtube.com/watch?v=yNpIDSqTJ_Y
 
 **Please don't ruin your eyes and don't play with this without breaks, I recommend breaks every 2 minutes for at least 15 seconds.**
 
@@ -54,8 +57,6 @@ A config is also included for various settings, including the key bind.
 I suggest leaving the settings at default, however you could also adjust them to fit your eyes better. If you believe that you made a good preset you can create an 'issue' and I will add it to the list of presets.
 
 Please be careful with the **EXPERIMENTAL** settings as they can completely mess up the focus mode. Refer to the code if you want to mess with them.
-
-Here's a test video showing it. The effect looks much better in-game than in video. [[insert video here]]
 
 **Presets:**  
 1. **Default**  
