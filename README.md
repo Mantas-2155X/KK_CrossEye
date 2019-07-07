@@ -3,8 +3,8 @@
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
 **Thank you:**  
-   *essu#1145* for the start,
-   *ManlyMarco#7309* for help and ideas.
+   *essu#1145* for the start,  
+   *ManlyMarco#7309* for help and ideas.  
 
 **Works in:**  
    *Studio*  
