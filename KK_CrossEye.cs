@@ -1,6 +1,13 @@
+#define DEBUG
+#undef DEBUG
+
 using BepInEx;
 using UnityEngine;
 using System.ComponentModel;
+
+#if DEBUG
+    using BepInEx.Logging;
+#endif
 
 [BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.1")]
 public class KK_CrossEye : BaseUnityPlugin {
@@ -80,7 +87,12 @@ public class KK_CrossEye : BaseUnityPlugin {
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit) && (hit.distance <= CrossEye_FocusDistance.Value) && (hit.transform.name.Contains("cf_") || hit.transform.name.Contains("aibu_"))) {
+#if DEBUG
+            if (Physics.Raycast(ray, out hit)) {
+                BepInEx.Logger.Log(LogLevel.Debug, $"Distance: {hit.distance} Target: {hit.transform.name}");
+#else
+            if (Physics.Raycast(ray, out hit) && (hit.distance <= CrossEye_FocusDistance.Value) && (hit.transform.name.Contains("cf_") || hit.transform.name.Contains("aibu_") || hit.transform.name.Contains("NPC"))) {
+#endif
                 oldFocus = currentFocus;
                 currentFocus = (CrossEye_FocusTotal.Value - (hit.distance * CrossEye_FocusMultiply.Value));
 
