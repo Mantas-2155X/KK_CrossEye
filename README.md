@@ -9,7 +9,7 @@
 
 **Compatibility:**  
    *kPlug | YES*  
-   *In school mode, initiating conversation with girls might break it, just click the bind twice again to reload the cross eye mode.*  
+   *In school mode, conversation with girls might break it, just click the bind twice again to reload the cross eye mode.*  
    *In free-h, touching/kissing will not work with the cross eye mode enabled*  
    *--not tested more--*  
 
