@@ -2,17 +2,17 @@
 
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
-**Thank you:**  
+**Thank you:**
 1. *essu#1145* for the start,  
 2. *ManlyMarco#7309* for help and ideas.  
 
-**Works in:**  
+**Works in:**
 1. *Studio*  
 2. *School Mode*  
 3. *Free-H*  
 4. *Live*  
 
-**Compatibility:**  
+**Compatibility:**
 1. **Studio**  
    * focus does not work  
 
@@ -24,7 +24,8 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 4. **General**  
    * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
-
+  
+  
 Will try fixing as many issues in compatibility as I can.
 
 This is like a VR plugin but without the need of a VR headset. It works by placing 2 cameras in slightly different positions from eachother and splitting the screen 'in half' with them.
