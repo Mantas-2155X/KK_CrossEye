@@ -8,7 +8,8 @@
    *--not tested more--*  
 
 **Compatibility:**  
-   *kPlug | YES*  
+   *kPlug | **YES***  
+   *In studio, focus does not work.*
    *In school mode, conversation with girls might break it, just click the bind twice again to reload the cross eye mode.*  
    *In free-h, touching/kissing will not work with the cross eye mode enabled*  
    *--not tested more--*  
