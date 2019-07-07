@@ -22,6 +22,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 2. **School Mode**  
    * conversations might break 3D mode, just click the bind twice again to reload the cross eye mode  
+   * focus does not work  
 
 3. **Free-H**  
    * touching/kissing will not work with the cross eye mode enabled  
