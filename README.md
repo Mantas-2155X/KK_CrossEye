@@ -15,14 +15,12 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 **Compatibility:**  
    **kPlug | No issues found**  
-   
    In studio, **focus does not work.**  
-   
    In school mode, **conversations might break it, just click the bind twice again to reload the cross eye mode.**  
-   
    In free-h, **touching/kissing will not work with the cross eye mode enabled**  
-   
    *--not tested more--*  
+
+Will try fixing as many issues in compatibility as I can.
 
 This is like a VR plugin but without the need of a VR headset. It works by placing 2 cameras in slightly different positions from eachother and splitting the screen 'in half' with them.
 
