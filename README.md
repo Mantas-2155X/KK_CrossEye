@@ -3,23 +3,27 @@
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
 **Thank you:**  
-   *essu#1145* for the start,  
-   *ManlyMarco#7309* for help and ideas.  
+1. *essu#1145* for the start,  
+2. *ManlyMarco#7309* for help and ideas.  
 
 **Works in:**  
-     *Studio*  
-     *School Mode*  
-     *Free-H*  
-     *Live*  
-     *--not tested more--*  
+1. *Studio*  
+2. *School Mode*  
+3. *Free-H*  
+4. *Live*  
 
 **Compatibility:**  
-   **kPlug | No issues found**  
-     In studio, **focus does not work**  
-     In school mode, **conversations might break 3D mode, just click the bind twice again to reload the cross eye mode**  
-     In free-h, **touching/kissing will not work with the cross eye mode enabled**  
-     In general, **UI is not converted to 3D so clicking space to hide it gives the best experience**  
-     *--not tested more--*  
+1. **Studio**  
+   focus does not work  
+
+2. **School Mode**  
+   conversations might break 3D mode, just click the bind twice again to reload the cross eye mode  
+
+3. **Free-H**  
+   touching/kissing will not work with the cross eye mode enabled  
+
+4. **General**  
+   UI is not converted to 3D so clicking space with mods to hide it gives the best experience
 
 Will try fixing as many issues in compatibility as I can.
 
