@@ -27,10 +27,13 @@ This is my first plugin so it might not be the best. Please make issues for any 
 3. **Free-H**  
    * touching/kissing will not work with the cross eye mode enabled  
 
-4. **General**  
+4. **Live**  
+   * focus does not work
+
+5. **General**  
    * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
 
-5. **Mods**
+6. **Mods**
    * kPlug | works good so far  
 
 
