@@ -9,7 +9,7 @@ using UnityEngine;
     using BepInEx.Logging;
 #endif
 
-[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.3.5")]
+[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.4")]
 public class KK_CrossEye : BaseUnityPlugin {
     private Camera mainCamera;
 
@@ -187,11 +187,13 @@ public class KK_CrossEye : BaseUnityPlugin {
         rightCameraObject.transform.localPosition += offset / 2;
         RightCamera.rect = new Rect(0.5f, 0, 0.5f, 1f);
 
+        mainCamera.rect = new Rect(0, 0, 0.5f, 1f);
         mainCamera.enabled = false;
     }
 
     void CrossEye_Kill() {
         mainCamera.enabled = true;
+        mainCamera.rect = new Rect(0, 0, 1f, 1f);
 
         GameObject.DestroyImmediate(leftCameraObject);
         GameObject.DestroyImmediate(rightCameraObject);
