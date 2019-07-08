@@ -9,7 +9,7 @@ using UnityEngine;
     using BepInEx.Logging;
 #endif
 
-[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.3")]
+[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.4")]
 public class KK_CrossEye : BaseUnityPlugin {
     private Camera mainCamera;
 
@@ -75,7 +75,7 @@ public class KK_CrossEye : BaseUnityPlugin {
         [Description("EXPERIMENTAL Eye focus total.")]
         [AcceptableValueRange(2.5f, 50f, false)]
         public static ConfigWrapper<float> CrossEye_FocusTotal { get; private set; }
-       
+
         public static SavedKeyboardShortcut CrossEye_EnableKey { get; private set; }
     #endregion
 
@@ -106,8 +106,8 @@ public class KK_CrossEye : BaseUnityPlugin {
 
                 LeftCamera.transform.Rotate(0, -CrossEye_InitialAngle.Value, 0);
                 RightCamera.transform.Rotate(0, CrossEye_InitialAngle.Value, 0);
-            } else { 
-                CrossEye_Kill(); 
+            } else {
+                CrossEye_Kill();
             }
         }
 
@@ -141,7 +141,6 @@ public class KK_CrossEye : BaseUnityPlugin {
 
     void CrossEye_Init() {
         leftCameraObject = GameObject.Instantiate(mainCamera.gameObject);
-        rightCameraObject = GameObject.Instantiate(mainCamera.gameObject);
 
         var baddies = new[] {
             typeof(Studio.CameraControl),
@@ -149,14 +148,11 @@ public class KK_CrossEye : BaseUnityPlugin {
             typeof(GUILayer),
             typeof(CapsuleCollider),
             typeof(Rigidbody),
-            typeof(CameraEffectorConfig),
-            typeof(CameraEffector),
             typeof(FlareLayer)
         };
 
         foreach (var b in baddies) {
             GameObject.DestroyImmediate(leftCameraObject.gameObject.GetComponent(b));
-            GameObject.DestroyImmediate(rightCameraObject.gameObject.GetComponent(b));
         }
 
         foreach (var leftComp in leftCameraObject.GetComponents<UnityEngine.Component>()) {
@@ -167,19 +163,13 @@ public class KK_CrossEye : BaseUnityPlugin {
             }
         }
 
-        foreach (var rightComp in rightCameraObject.GetComponents<UnityEngine.Component>()) {
-            foreach (var cName in moreBaddies) {
-                if (rightComp.GetType().FullName.Contains(cName)) {
-                    GameObject.DestroyImmediate(rightComp);
-                }
-            }
-        }
+        rightCameraObject = GameObject.Instantiate(leftCameraObject);
 
         LeftCamera = leftCameraObject.GetComponent<Camera>();
         RightCamera = rightCameraObject.GetComponent<Camera>();
 
         LeftCamera.CopyFrom(mainCamera);
-        RightCamera.CopyFrom(mainCamera);
+        RightCamera.CopyFrom(LeftCamera);
 
         leftCameraObject.transform.SetParent(mainCamera.gameObject.transform, false);
         leftCameraObject.transform.localPosition = Vector3.zero;
