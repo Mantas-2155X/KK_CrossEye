@@ -96,11 +96,11 @@ public class KK_CrossEye : BaseUnityPlugin {
 
             offset = Vector3.left * CrossEye_IPD.Value;
 
-            mainCamera = Camera.main;
-
             if (CrossEye_Enabled) {
                 oldFocus = 0f;
                 currentFocus = 0f;
+
+                mainCamera = Camera.main;
 
                 CrossEye_Init();
 
@@ -187,11 +187,11 @@ public class KK_CrossEye : BaseUnityPlugin {
         rightCameraObject.transform.localPosition += offset / 2;
         RightCamera.rect = new Rect(0.5f, 0, 0.5f, 1f);
 
-        mainCamera.rect = new Rect(0.499f, 0.499f, 0.002f, 0.002f);
+        mainCamera.enabled = false;
     }
 
     void CrossEye_Kill() {
-        mainCamera.rect = new Rect(0f, 0f, 1f, 1f);
+        mainCamera.enabled = true;
 
         GameObject.DestroyImmediate(leftCameraObject);
         GameObject.DestroyImmediate(rightCameraObject);
