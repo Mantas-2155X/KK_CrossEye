@@ -64,8 +64,9 @@ Please be careful with the **EXPERIMENTAL** settings as they can completely mess
 
 **Presets:**  
 1. **Default**  
-   Angle: 2.5  
    IPD: 0.18  
-   Focus Mul: 10  
+   Angle: 2.5  
+   Focus In: 0.075  
    Focus Dst: 1.0  
+   Focus Mul: 10  
    Focus Ttl: 10  
