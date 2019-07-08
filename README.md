@@ -18,7 +18,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 **Compatibility:**
 1. **Studio**  
-   * focus does not work  
+   * focus does not work (no colliders, not fixable for now)  
 
 2. **School Mode**  
    * conversations might break 3D mode, just click the bind twice again to reload the cross eye mode  
@@ -28,7 +28,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
    * touching/kissing will not work with the cross eye mode enabled  
 
 4. **Live**  
-   * focus does not work
+   * focus does not work (no colliders, not fixable for now)  
 
 5. **General**  
    * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
@@ -51,7 +51,6 @@ To add more realism, I've also coded in a **focus** mechanism which is not the b
 
 **The focus is very alpha:**  
    *Currently it only focuses on characters.*  
-   *During H, the neck does not get focused, probably missing a collider.*  
    *I will make it a little smoother with the next updates.*  
 
 This plugin might drop your fps **slightly** when activated. 
