@@ -25,7 +25,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
    * ~~focus does not work~~ Fixed in v1.2  
 
 3. **During H**  
-   * ~~touching/kissing will not work with the cross eye mode enabled~~ Fixed in v1.4  
+   * ~~touching/kissing does not work~~ Fixed in v1.4 (touch colliders on LEFT side of screen, crossed eyes looks centered)  
 
 4. **Live**  
    * focus does not work (no colliders, not fixable for now)  
