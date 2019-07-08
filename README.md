@@ -32,6 +32,8 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 5. **General**  
    * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
+   * ~~focus-in is not smooth~~ Fixed in v1.3  
+   * focus-out is not smooth
 
 6. **Mods**
    * kPlug | works good so far  
