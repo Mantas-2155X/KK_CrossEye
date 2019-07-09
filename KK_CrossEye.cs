@@ -63,7 +63,7 @@ public class KK_CrossEye : BaseUnityPlugin {
         [AcceptableValueRange(0.01f, 0.99f, false)]
         public static ConfigWrapper<float> CrossEye_FocusOutSpeed { get; private set; }
 
-    [DisplayName("CrossEye mode focus force disable")]
+        [DisplayName("CrossEye mode focus force disable")]
         public ConfigWrapper<bool> CrossEye_FocusForceDisabled { get; private set; }
 
         [DisplayName("EXPERIMENTAL CrossEye mode focus start distance")]
