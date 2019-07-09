@@ -26,7 +26,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 3. **During H**  
    * ~~touching/kiss does not work~~ Fixed in v1.4  
-   * touching/kiss positions accurate enough. LEFT side of screen, Centered with crossed eyes. v1.4  
+   * touching/kiss positions 70% accurate. LEFT side of screen, Centered with crossed eyes. v1.4  
 
 4. **Live**  
    * focus does not work (no colliders, not fixable for now)  
@@ -34,7 +34,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
 5. **General**  
    * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
    * ~~focus-in is not smooth~~ Fixed in v1.3  
-   * focus-out is not smooth
+   * ~~focus-out is not smooth~~ Fixed in v1.4
 
 6. **Mods**
    * kPlug | works good so far  
@@ -52,9 +52,7 @@ Here's a random youtube video which explains **how to cross your eyes**: https:/
 
 To add more realism, I've also coded in a **focus** mechanism which is not the best but will be improved later. If you get close enough to an object it will 'rotate the camera views' just like your eyes when you look at something very close. This allows you to get even closer to objects and still have them stay on your screen.
 
-**The focus is very alpha:**  
-   *Currently it only focuses on characters.*  
-   *I will make it a little smoother with the next updates.*  
+**focus mode currently only works for characters**
 
 This plugin might drop your fps **slightly** when activated. 
 
@@ -69,7 +67,8 @@ Please be careful with the **EXPERIMENTAL** settings as they can completely mess
 1. **Default**  
    IPD: 0.18  
    Angle: 2.5  
-   Focus In: 0.075  
+   Focus In: 0.07  
+   Focus Out: 0.07  
    Focus Dst: 1.0  
    Focus Mul: 10  
    Focus Ttl: 10  
