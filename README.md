@@ -3,7 +3,7 @@
 This is my first plugin so it might not be the best. Please make issues for any bugs which you find (and are not listed in the compatibility section)
 
 **Patreon page:** https://www.patreon.com/2155X  
-**Screenshots of the plugin in action:** [New Images](https://imgur.com/a/r0J51R4)      [Old Images](https://imgur.com/a/PEKE5rW)  
+**Screenshots of the plugin in action:** [latest](https://imgur.com/a/O9llIs8) [old](https://imgur.com/a/r0J51R4) [older](https://imgur.com/a/PEKE5rW)  
 **Video of the plugin in action:** coming soon  
 
 **Thank you:**
