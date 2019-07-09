@@ -26,7 +26,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 3. **During H**  
    * ~~touching/kiss does not work~~ Fixed in v1.4  
-   * (v1.4) touching/kiss positions not perfect, but accurate enough. LEFT side of screen, crossed looks centered.  
+   * touching/kiss positions accurate enough. LEFT side of screen, Centered with crossed eyes. v1.4  
 
 4. **Live**  
    * focus does not work (no colliders, not fixable for now)  
