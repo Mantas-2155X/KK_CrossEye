@@ -58,7 +58,12 @@ public class KK_CrossEye : BaseUnityPlugin {
         [AcceptableValueRange(0.01f, 0.99f, false)]
         public static ConfigWrapper<float> CrossEye_FocusInSpeed { get; private set; }
 
-        [DisplayName("CrossEye mode focus force disable")]
+        [DisplayName("CrossEye mode focus out speed")]
+        [Description("Eye focus-out speed.")]
+        [AcceptableValueRange(0.01f, 0.99f, false)]
+        public static ConfigWrapper<float> CrossEye_FocusOutSpeed { get; private set; }
+
+    [DisplayName("CrossEye mode focus force disable")]
         public ConfigWrapper<bool> CrossEye_FocusForceDisabled { get; private set; }
 
         [DisplayName("EXPERIMENTAL CrossEye mode focus start distance")]
@@ -83,7 +88,8 @@ public class KK_CrossEye : BaseUnityPlugin {
         CrossEye_EnableKey = new SavedKeyboardShortcut("CrossEye mode key", this, new KeyboardShortcut(KeyCode.Keypad1));
         CrossEye_IPD = new ConfigWrapper<float>("CrossEye mode IPD", this, 0.18f);
         CrossEye_InitialAngle = new ConfigWrapper<float>("CrossEye mode initial angle", this, 2.5f);
-        CrossEye_FocusInSpeed = new ConfigWrapper<float>("CrossEye mode focus-in speed", this, 0.075f);
+        CrossEye_FocusInSpeed = new ConfigWrapper<float>("CrossEye mode focus-in speed", this, 0.07f);
+        CrossEye_FocusOutSpeed = new ConfigWrapper<float>("CrossEye mode focus-out speed", this, 0.07f);
         CrossEye_FocusForceDisabled = new ConfigWrapper<bool>("CrossEye mode focus force disable", this, false);
         CrossEye_FocusDistance = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus start distance", this, 1f);
         CrossEye_FocusMultiply = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus multiply", this, 10f);
@@ -126,14 +132,12 @@ public class KK_CrossEye : BaseUnityPlugin {
                 RightCamera.transform.Rotate(0, -oldFocus + currentFocus, 0);
 #endif
             } else {
-                if (currentFocus > 0f) {
+                oldFocus = currentFocus;
+                currentFocus = Mathf.Lerp(currentFocus, 0, CrossEye_FocusOutSpeed.Value);
 #if !DEBUG
-                    LeftCamera.transform.Rotate(0, currentFocus, 0);
-                    RightCamera.transform.Rotate(0, -currentFocus, 0);
+                LeftCamera.transform.Rotate(0, oldFocus - currentFocus, 0);
+                RightCamera.transform.Rotate(0, -oldFocus + currentFocus, 0);
 #endif
-                    oldFocus = 0f;
-                    currentFocus = 0f;
-                }
             }
         }
 
