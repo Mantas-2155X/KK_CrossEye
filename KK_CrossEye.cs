@@ -1,15 +1,24 @@
 #define DEBUG
 #undef DEBUG
 
+using System.Linq;
+using System.Collections;
 using System.ComponentModel;
+
 using BepInEx;
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 #if DEBUG
     using BepInEx.Logging;
 #endif
 
-[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.4")]
+public static class CrossEye_Data {
+    public static bool CrossEye_ShouldStart;
+}
+
+[BepInPlugin(nameof(KK_CrossEye), nameof(KK_CrossEye), "1.5")]
 public class KK_CrossEye : BaseUnityPlugin {
     private Camera mainCamera;
 
@@ -28,18 +37,34 @@ public class KK_CrossEye : BaseUnityPlugin {
     private RaycastHit hit;
     private Ray ray;
 
-    protected string hitgroup_1 = "cf_";
-    protected string hitgroup_2 = "aibu_";
-    protected string hitgroup_3 = "NPC(";
+    private string hitgroup_1 = "cf_";
+    private string hitgroup_2 = "aibu_";
+    private string hitgroup_3 = "NPC(";
 
-    protected string[] moreBaddies = {
-        "ImageEffects.GlobalFog",
-        //"ImageEffects.BloomAndFlares",
-        "ImageEffects.SunShafts",
-        "ImageEffects.VignetteAndChromaticAberration",
-        "ImageEffects.DepthOfField",
-        "ImageEffects.Blur",
-        "ImageEffects.SepiaTone"
+    private string[] BadScenes = new[] {
+        "NightMenu",
+        "Check",
+        "Config",
+        "Title",
+        "Init",
+        "Logo",
+        "Load",
+        "Action",
+        "Exit",
+        "ClassRoomSelect",
+        "Save",
+        "LiveStage",
+        "FixEventSceneEx",
+        "ADV",
+        "CustomScene",
+        "NetworkCheckScene",
+        "Uploader",
+        "Downloader",
+        "EntryPlayer",
+        "FreeH",
+        "FreeHCharaSelectFemale",
+        "FreeHCharaSelectMale",
+        "LiveCharaSelectFemale",
     };
 
     #region Config properties
@@ -88,8 +113,8 @@ public class KK_CrossEye : BaseUnityPlugin {
         CrossEye_EnableKey = new SavedKeyboardShortcut("CrossEye mode key", this, new KeyboardShortcut(KeyCode.Keypad1));
         CrossEye_IPD = new ConfigWrapper<float>("CrossEye mode IPD", this, 0.18f);
         CrossEye_InitialAngle = new ConfigWrapper<float>("CrossEye mode initial angle", this, 2.5f);
-        CrossEye_FocusInSpeed = new ConfigWrapper<float>("CrossEye mode focus-in speed", this, 0.07f);
-        CrossEye_FocusOutSpeed = new ConfigWrapper<float>("CrossEye mode focus-out speed", this, 0.07f);
+        CrossEye_FocusInSpeed = new ConfigWrapper<float>("CrossEye mode focus-in speed", this, 0.05f);
+        CrossEye_FocusOutSpeed = new ConfigWrapper<float>("CrossEye mode focus-out speed", this, 0.05f);
         CrossEye_FocusForceDisabled = new ConfigWrapper<bool>("CrossEye mode focus force disable", this, false);
         CrossEye_FocusDistance = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus start distance", this, 1f);
         CrossEye_FocusMultiply = new ConfigWrapper<float>("EXPERIMENTAL CrossEye mode focus multiply", this, 10f);
@@ -159,14 +184,6 @@ public class KK_CrossEye : BaseUnityPlugin {
             GameObject.DestroyImmediate(leftCameraObject.gameObject.GetComponent(b));
         }
 
-        foreach (var leftComp in leftCameraObject.GetComponents<UnityEngine.Component>()) {
-            foreach (var cName in moreBaddies) {
-                if (leftComp.GetType().FullName.Contains(cName)) {
-                    GameObject.DestroyImmediate(leftComp);
-                }
-            }
-        }
-
         rightCameraObject = GameObject.Instantiate(leftCameraObject);
 
         LeftCamera = leftCameraObject.GetComponent<Camera>();
@@ -196,10 +213,83 @@ public class KK_CrossEye : BaseUnityPlugin {
     }
 
     void CrossEye_Kill() {
+        CrossEye_Enabled = false;
+
         mainCamera.enabled = true;
         mainCamera.rect = new Rect(0, 0, 1f, 1f);
 
-        GameObject.DestroyImmediate(leftCameraObject);
-        GameObject.DestroyImmediate(rightCameraObject);
+        if (rightCameraObject != null) {
+            GameObject.DestroyImmediate(rightCameraObject);
+        }
+
+        if (leftCameraObject != null) {
+            GameObject.DestroyImmediate(leftCameraObject);
+        }
+    }
+
+    void OnDestroy() {
+        if (CrossEye_Enabled) {
+            CrossEye_Kill();
+        }
+    }
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += CrossEye_OnSceneLoad;
+        SceneManager.sceneUnloaded += CrossEye_OnSceneUnload;
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= CrossEye_OnSceneLoad;
+        SceneManager.sceneUnloaded -= CrossEye_OnSceneUnload;
+    }
+
+    IEnumerator CrossEye_DelayedStart(float time) {
+        yield return new WaitForSeconds(time);
+
+        if (!CrossEye_Enabled) {
+            CrossEye_Enabled = true;
+
+            oldFocus = 0f;
+            currentFocus = 0f;
+
+            mainCamera = Camera.main;
+
+            CrossEye_Init();
+
+            LeftCamera.transform.Rotate(0, -CrossEye_InitialAngle.Value, 0);
+            RightCamera.transform.Rotate(0, CrossEye_InitialAngle.Value, 0);
+        }
+    }
+
+    void CrossEye_OnSceneUnload(Scene scene) {
+        //BepInEx.Logger.Log(LogLevel.Message, $"Unload scene: {scene.name}");
+
+        if (CrossEye_Enabled) {
+            CrossEye_Kill();
+
+            CrossEye_Data.CrossEye_ShouldStart = true;
+        } else {
+            if (CrossEye_Data.CrossEye_ShouldStart && !BadScenes.Contains(scene.name)) {
+                CrossEye_Data.CrossEye_ShouldStart = false;
+
+                StartCoroutine(CrossEye_DelayedStart(0.25f));
+            }
+        }
+    }
+
+    void CrossEye_OnSceneLoad(Scene scene, LoadSceneMode mode) {
+        //BepInEx.Logger.Log(LogLevel.Message, $"Load scene: {scene.name}");
+
+        if (CrossEye_Enabled) {
+            CrossEye_Kill();
+
+            CrossEye_Data.CrossEye_ShouldStart = true;
+        } else {
+            if (CrossEye_Data.CrossEye_ShouldStart && !BadScenes.Contains(scene.name)) {
+                CrossEye_Data.CrossEye_ShouldStart = false;
+
+                StartCoroutine(CrossEye_DelayedStart(0.25f));
+            }
+        }
     }
 }
