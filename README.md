@@ -21,7 +21,7 @@ This is my first plugin so it might not be the best. Please make issues for any 
    * focus does not work (no colliders, not fixable for now)  
 
 2. **School Mode**  
-   * conversations might break 3D mode, just click the bind twice again to reload the cross eye mode  
+   * ~~conversations might break 3D mode, just click the bind twice again to reload the cross eye mode~~ Fixed in v1.5  
    * ~~focus does not work~~ Fixed in v1.2  
 
 3. **During H**  
