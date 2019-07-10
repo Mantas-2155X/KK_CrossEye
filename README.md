@@ -67,8 +67,8 @@ Please be careful with the **EXPERIMENTAL** settings as they can completely mess
 1. **Default**  
    IPD: 0.18  
    Angle: 2.5  
-   Focus In: 0.07  
-   Focus Out: 0.07  
+   Focus In: 0.05  
+   Focus Out: 0.05  
    Focus Dst: 1.0  
    Focus Mul: 10  
    Focus Ttl: 10  
