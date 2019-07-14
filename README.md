@@ -23,10 +23,11 @@ This is my first plugin so it might not be the best. Please make issues for any 
 2. **School Mode**  
    * ~~conversations might break 3D mode, just click the bind twice again to reload the cross eye mode~~ Fixed in v1.5  
    * ~~focus does not work~~ Fixed in v1.2  
+   * Starting conversation with teacher / starting event star will break 3D. Doube click the ON/OFF bind to fix.  
 
 3. **During H**  
    * ~~touching/kiss does not work~~ Fixed in v1.4  
-   * touching/kiss positions 70% accurate. LEFT side of screen, Centered with crossed eyes. v1.4  
+   * touching/kiss positions 80% accurate. LEFT side of screen, Centered with crossed eyes. v1.4  
 
 4. **Live**  
    * focus does not work (no colliders, not fixable for now)  
