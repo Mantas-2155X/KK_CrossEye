@@ -4,42 +4,26 @@ This is my first plugin so it might not be the best. Please make issues for any 
 
 **Patreon page:** https://www.patreon.com/2155X  
 **Screenshots of the plugin in action:** [latest](https://imgur.com/a/O9llIs8) [old](https://imgur.com/a/r0J51R4) [older](https://imgur.com/a/PEKE5rW)  
-**Video of the plugin in action:** coming soon  
 
 **Thank you:**
 1. *essu#1145* for the start and ideas,  
 2. *ManlyMarco#7309* for help and ideas.  
-
-**Works in:**
-1. *Studio*  
-2. *School Mode*  
-3. *Free-H*  
-4. *Live*  
 
 **Compatibility:**
 1. **Studio**  
    * focus does not work (no colliders, not fixable for now)  
 
 2. **School Mode**  
-   * ~~conversations might break 3D mode, just click the bind twice again to reload the cross eye mode~~ Fixed in v1.5  
-   * ~~focus does not work~~ Fixed in v1.2  
    * Starting conversation with teacher / starting event star will break 3D. Doube click the ON/OFF bind to fix.  
 
 3. **During H**  
-   * ~~touching/kiss does not work~~ Fixed in v1.4  
-   * touching/kiss positions 80% accurate. LEFT side of screen, Centered with crossed eyes. v1.4  
+   * touching/kiss positions *almost* accurate. LEFT side of screen, Centered with crossed eyes. v1.4  
 
 4. **Live**  
    * focus does not work (no colliders, not fixable for now)  
 
 5. **General**  
-   * UI is not converted to 3D so clicking space with mods to hide it gives the best experience
-   * ~~focus-in is not smooth~~ Fixed in v1.3  
-   * ~~focus-out is not smooth~~ Fixed in v1.4
-
-6. **Mods**
-   * kPlug | works good so far  
-
+   * UI is not converted to 3D so clicking space with HideAllUI plugin to hide it gives the best experience
 
 Will try fixing as many issues in compatibility as I can.
 
