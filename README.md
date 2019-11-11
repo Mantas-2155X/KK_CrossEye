@@ -5,6 +5,15 @@ This is my first plugin so it might not be the best. Please make issues for any 
 **Patreon page:** https://www.patreon.com/2155X  
 **Screenshots of the plugin in action:** [latest](https://imgur.com/a/O9llIs8) [old](https://imgur.com/a/r0J51R4) [older](https://imgur.com/a/PEKE5rW)  
 
+**Download:**  
+* Download the latest `KK_CrossEye.zip` from https://github.com/Mantas-2155X/KK_CrossEye/releases  
+
+**Installation:**  
+* Extract `KK_CrossEye.zip` into your game directory.  
+
+**Configuration:**  
+* Please look at the plugin settings menu and enable/modify which features you want.  
+
 **Thank you:**
 1. *essu#1145* for the start and ideas,  
 2. *ManlyMarco#7309* for help and ideas.  
